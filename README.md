@@ -8,7 +8,7 @@
 
 ## 🛠️ Tech stack  
 
-<p align="left">
+<p align="center">
   <img src="https://skillicons.dev/icons?i=python,cs,html,css,lua" />
 </p>
 
@@ -19,7 +19,7 @@
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Koki26&show_icons=true&theme=radical" alt="GitHub Stats" />
   <br/>
-  <a href="https://git.io/streak-stats"><img src="https://github-readme-streak-stats.herokuapp.com?user=koki26&theme=highcontrast" alt="GitHub Streak" /></a>
+  <img src="https://streak-stats.demolab.com?user=Koki26&theme=radical&border_radius=10" alt="GitHub Streak" />
   <br/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Koki26&layout=compact&theme=radical" alt="Top Langs" />
 </p>
