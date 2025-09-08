@@ -19,7 +19,7 @@
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Koki26&show_icons=true&theme=radical" alt="GitHub Stats" />
   <br/>
-  <img src="https://streak-stats.demolab.com?user=Koki26&theme=radical&border_radius=10" alt="GitHub Streak" />
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=Koki26&theme=radical&date_format=%5BY.%5Dn.j" alt="GitHub Streak" />
   <br/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Koki26&layout=compact&theme=radical" alt="Top Langs" />
 </p>
