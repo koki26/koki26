@@ -16,7 +16,7 @@
 ## 📊 GitHub statistiky  
 
 <p align="center">
-  [![koki26's GitHub stats](https://github-readme-stats-ruby-omega-72.vercel.app/api?username=koki26)](https://github.com/anuraghazra/github-readme-stats)
+  [![Koki26's GitHub stats](github-readme-stats-ruby-omega-72.vercel.app/api?username=koki26)](https://github.com/anuraghazra/github-readme-stats)
 </p>
 
 ---
