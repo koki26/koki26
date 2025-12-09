@@ -16,9 +16,7 @@
 ## 📊 GitHub statistiky  
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Koki26&show_icons=true&theme=radical&hide_border=true&border_radius=10" alt="GitHub Stats" />
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Koki26&layout=compact&theme=radical&hide_border=true&border_radius=10" alt="Top Langs" />
+  [![koki26's GitHub stats](https://github-readme-stats.vercel.app/api?username=koki26)](https://github.com/anuraghazra/github-readme-stats)
 </p>
 
 ---
