@@ -16,7 +16,9 @@
 ## 📊 GitHub statistiky  
 
 <p align="center">
-  <img src="https://github-readme-stats-ruby-omega-72.vercel.app/api?username=koki26" />
+  <img src="https://github-readme-stats-ruby-omega-72.vercel.app/api?username=Koki26&show_icons=true&theme=radical&hide_border=true&border_radius=10" alt="GitHub Stats" />
+  <br/>
+  <img src="https://github-readme-stats-ruby-omega-72.vercel.app/api?username=Koki26&layout=compact&theme=radical&hide_border=true&border_radius=10" alt="Top Langs" />
 </p>
 
 ---
