@@ -12,12 +12,26 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
+      # Fail loudly: with no token metrics still exits 0 and renders empty panels.
+      - name: Require token
+        run: |
+          if [ -z "${{ secrets.METRICS_TOKEN }}" ]; then
+            echo "::error::METRICS_TOKEN is not set. Add it as a repository secret."
+            exit 1
+          fi
+
+      # Actions pinned to commit SHAs: a mutable tag could be repointed at hostile code.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      # output_action: none writes to /metrics_renders instead of committing, so the
+      # leak gate below runs before anything reaches the public repository.
       - name: Overview
         uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: koki26
           filename: assets/metrics.svg
+          output_action: none
           template: classic
           base: header, activity, repositories
           config_timezone: Europe/Prague
@@ -33,6 +47,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           user: koki26
           filename: assets/metrics-languages.svg
+          output_action: none
           base: ""
           config_timezone: Europe/Prague
           plugin_languages: yes
@@ -44,3 +59,25 @@ jobs:
             svg { color: #8B949E; }
             h1, h2, h3 { color: #58A6FF; }
             .count, .date { color: #8B949E; }
+
+      - name: Reject panels containing private names, commits or code
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: |
+          names="$RUNNER_TEMP/private-names.txt"
+          gh api "user/repos?per_page=100&affiliation=owner" \
+            --jq '.[]|select(.private)|.name' > "$names"
+          echo "private repositories visible to this token: $(wc -l < "$names")"
+          python3 .github/scripts/check_no_private_leak.py "$names" \
+            /metrics_renders/assets/metrics.svg \
+            /metrics_renders/assets/metrics-languages.svg
+
+      - name: Publish
+        run: |
+          mkdir -p assets
+          cp /metrics_renders/assets/metrics.svg assets/metrics.svg
+          cp /metrics_renders/assets/metrics-languages.svg assets/metrics-languages.svg
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets
+          git diff --quiet --cached || { git commit -m "Regenerate metrics panels" && git push; }
